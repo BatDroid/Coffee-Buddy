@@ -2,7 +2,7 @@ export const GET_VENUES_REQUEST = 'GET_VENUES_REQUEST';
 export const GET_VENUES_SUCCESS = 'GET_VENUES_SUCCESS';
 export const GET_VENUES_ERROR = 'GET_VENUES_ERROR';
 
-interface CoordinateType {
+export interface CoordinateType {
   longitude: number;
   latitude: number;
 }

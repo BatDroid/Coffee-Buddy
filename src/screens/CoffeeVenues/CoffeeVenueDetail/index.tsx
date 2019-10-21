@@ -4,6 +4,7 @@ import {NavigationScreenProp} from 'react-navigation';
 import {View, SafeAreaView, Dimensions, StyleSheet} from 'react-native';
 import Header from './Header';
 import Contact from './Contact';
+import Location from './Location';
 
 const {height} = Dimensions.get('window');
 
@@ -19,12 +20,13 @@ interface Props {
 const CoffeeVenueDetail = (props: Props) => {
   const {navigation} = props;
   const venue = navigation.getParam('venue');
-  const {image_url, name, rating, phone, url} = venue;
+  const {image_url, name, rating, phone, url, coordinates} = venue;
   return (
     <SafeAreaView>
       <Header name={name} imageUrl={image_url} rating={rating} />
       <View style={styles.contentContainer}>
         <Contact phone={phone} webUrl={url} />
+        <Location coordinates={coordinates} />
       </View>
     </SafeAreaView>
   );
