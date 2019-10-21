@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "sdk": "file:sdk",
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-gesture-handler": "^1.4.1",
