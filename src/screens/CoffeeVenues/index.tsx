@@ -16,13 +16,16 @@ import {VenuesStoreType} from '../../redux/coffeeVenue/reducers';
 import {ScreenLoading, ServerError} from '../../components';
 import VenuesList from './VenuesList';
 import {VenueType} from '../../redux/coffeeVenue/actions/types';
+import {NavigationScreenProp} from 'react-navigation';
+import screens from '../../configs/navigation/screens';
 
 interface Props extends VenuesStoreType {
   getVenues: Function;
+  navigation: NavigationScreenProp<{}>;
 }
 
 const CoffeeVenues = (props: Props) => {
-  const {getVenues, isFetching, venues, errorStatus} = props;
+  const {getVenues, isFetching, venues, errorStatus, navigation} = props;
   useEffect(() => {
     getVenues();
   }, []);
@@ -30,7 +33,12 @@ const CoffeeVenues = (props: Props) => {
   if (errorStatus) return <ServerError />;
   return (
     <SafeAreaView style={{flex: 1}}>
-      <VenuesList data={venues} onItemPressed={(i: VenueType) => {}} />
+      <VenuesList
+        data={venues}
+        onItemPressed={(venue: VenueType) => {
+          navigation.navigate(screens.coffeVenueDetail, {venue});
+        }}
+      />
     </SafeAreaView>
   );
 };
