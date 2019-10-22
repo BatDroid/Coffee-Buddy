@@ -5,6 +5,7 @@ import {View, SafeAreaView, Dimensions, StyleSheet} from 'react-native';
 import Header from './Header';
 import Contact from './Contact';
 import Location from './Location';
+import Images from './Images';
 
 const {height} = Dimensions.get('window');
 
@@ -27,6 +28,7 @@ const CoffeeVenueDetail = (props: Props) => {
       <View style={styles.contentContainer}>
         <Contact phone={phone} webUrl={url} />
         <Location coordinates={coordinates} />
+        <Images />
       </View>
     </SafeAreaView>
   );
